@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div class="container-fluid" th:fragment="sideMenu">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="/show">BUY</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"><a href="/toys">TOYS</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"><a
+					href="/transactionHistory">HISTORY</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"><a href="/users">USERS</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationModal"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h1 class="fragments/page-header">Transactions history</h1>
+	</div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<table class="table table-striped data-tables">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Total</th>
+					<th>Toy</th>
+					<th>User</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="operation : ${operations}">
+					<td th:text="${operation.date}"></td>
+					<td th:text="${operation.total}"></td>
+					<td th:text="${operation.toy}"></td>
+					<td th:text="${operation.user}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div th:include="fragments/footer :: scripts"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationScripts"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationModal"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h1 class="fragments/page-header">Toys</h1>
+	</div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<table class="table table-striped data-tables">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Stock</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="toy : ${toys}">
+					<td th:text="${toy.name}"></td>
+					<td th:text="${toy.description}"></td>
+					<td th:text="${toy.price}"></td>
+					<td th:text="${toy.stock}"></td>
+
+					<td><a class="btn btn-default"
+						th:href="'/toys/edit/'+${toy.id}"> <span
+							class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</a></td>
+					<td><a class="btn btn-default" href="#modal_delete"
+						data-toggle="modal" th:attr="data-id='/toys/delete/'+${toy.id}"><span
+							class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/toys/new" class="btn btn-default" role="button">New Toy</a>
+	</div>
+	<div th:include="fragments/footer :: scripts"></div>
+	<div
+		th:replace="fragments/deleteConfirmationModal :: deleteConfirmationScripts"></div>
+</body>
+</html>

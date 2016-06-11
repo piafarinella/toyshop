@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h1 class="fragments/page-header">User</h1>
+	</div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<form role="form" action="#" th:action="@{/register}"
+			th:object="${user}" method="post">
+
+
+			<div class="form-group">
+				<label for="username">Username:</label> <input name="username"
+					th:value="*{username}" type="text" value="" class="form-control"
+					id="username"></input>
+				<p th:if="${#fields.hasErrors('username')}"
+					class="label label-danger" th:errors="*{username}"></p>
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label> <input name="password"
+					type="password" class="form-control" th:value="*{password}"
+					id="password" value=""></input>
+				<p th:if="${#fields.hasErrors('password')}"
+					class="label label-danger" th:errors="*{password}"></p>
+			</div>
+			<div class="form-group">
+				<label for="passwordRepeated">Repeat password:</label> <input
+					name="passwordRepeated" type="password" class="form-control"
+					th:value="*{passwordRepeated}" id="passwordRepeated" value=""></input>
+				<p th:if="${#fields.hasErrors('passwordRepeated')}"
+					class="label label-danger" th:errors="*{passwordRepeated}"></p>
+			</div>
+
+			<button type="submit" class="btn btn-info">Register</button>
+
+
+
+
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: scripts">.........</div>
+</body>
+</html>

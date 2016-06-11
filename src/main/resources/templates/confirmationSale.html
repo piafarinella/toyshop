@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div>
+			<img id="img" src="/images/thanks-you.jpg" />
+		</div>
+		<h3>
+			<a class="navbar-brand" href="/show">Return to the list</a>
+		</h3>
+	</div>
+
+	<div th:include="fragments/footer :: scripts"></div>
+</body>
+</html>

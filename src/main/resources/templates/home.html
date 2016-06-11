@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+	<nav th:replace="fragments/nav :: nav">.........</nav>
+	<div th:include="fragments/sideMenu :: sideMenu"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div>
+			<img id="img" src="/images/toys.jpg" class="img-responsive"
+				style="width: 1100px; height: 800px;" />
+		</div>
+	</div>
+
+	<div th:include="fragments/footer :: scripts"></div>
+</body>
+</html>

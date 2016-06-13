@@ -11,7 +11,7 @@
 	</div>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<table class="table table-striped data-tables">
-			<thead>
+			<thead >
 				<tr>
 					<th>Name</th>
 					<th>Description</th>
@@ -22,11 +22,12 @@
 				</tr>
 			</thead>
 			<tbody>
+			
 				<tr th:each="toy : ${toys}">
 					<td th:text="${toy.name}"></td>
 					<td th:text="${toy.description}"></td>
 					<td th:text="${toy.price}"></td>
-					<td th:text="${toy.stock}"></td>
+					<td th:text="${toy.stock}" th:class="${toy.stock}==0?danger:(${toy.stock}>4?success:warning)"></td>
 
 					<td><a class="btn btn-default"
 						th:href="'/toys/edit/'+${toy.id}"> <span

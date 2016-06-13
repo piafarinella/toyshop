@@ -6,11 +6,12 @@
 	<div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
-				<li><a href="/show">BUY</a></li>
+			
+				<li><a href="/show">BUY<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-shopping-cart"></span></a></li>
 				<li sec:authorize="hasAuthority('ADMIN')"><a href="/toys">TOYS</a></li>
 				<li sec:authorize="hasAuthority('ADMIN')"><a
 					href="/transactionHistory">HISTORY</a></li>
-				<li sec:authorize="hasAuthority('ADMIN')"><a href="/users">USERS</a></li>
+				<li sec:authorize="hasAuthority('ADMIN')"><a href="/users">USERS <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon  glyphicon-user"></span></a></li>
 			</ul>
 		</div>
 	</div>
